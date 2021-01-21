@@ -22,13 +22,14 @@ int main()
                 }
                 m++;
             }
-            if(flag == 0 && (n == 0 || input_string[n-1] == ' ') && (input_string[n+m] == '\0' || input_string[n+m] == ' ')){
+            if(flag == 0 && 
+              (n == 0 || input_string[n-1] == ' ') && 
+              (input_string[n+m] == '\0' || input_string[n+m] == ' ')){
                 for (i = n; input_string[i] != '\0'; i++){
-                    
                     input_string[i] = input_string[i+m+1];
                 }
                 input_string[i-m] = '\0';
-                n = -1;
+                n--;
             }
         }
         n++;
