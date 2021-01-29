@@ -1,7 +1,7 @@
 #include<stdio.h>
 
-int main()
+void main()
 {
-    printf("%d", (3+20)%20);
-    return 0;
+    printf("%c %c %c %c %c %c", 87, 73, 76, 76, 89,79);
+    printf("\n");
 }

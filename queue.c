@@ -1,88 +1,53 @@
 #include<stdio.h>
+
 #define MAX 20
-
-// ma'am, even though u did not show us how to use pointer yet, I had to use pointer because i found no other way to edit a variable with a function :D
-int dequeue(int array[], int* front, int* rear)
-{
-    if ((*front + 1 + MAX) % MAX != *rear) 
-    {
-        *front = (*front + 1 + MAX) % MAX;
-        return array[*front];
-    } else
-    {
-        printf("underflow\n");
-    }
-}
-void enqueue(int array[], int* front, int* rear, int element)
-{
-    if ((*rear + 1) % MAX != *front) 
-    {
-        *rear = (*rear + 1) % MAX;
-        array[*rear] = element;
-    } else
-    {
-        printf("overflow\n");
-    }   
-}
-
 int main()
 {
-    int queue[MAX] = {1,2,3,4,5};
-    int front = 0;
-    int rear = 4;
-    int temp;
-
-    //checking...
-    enqueue(queue, &front, &rear, 1);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 2);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 3);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 6);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 8);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 11);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 9);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 4);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 3);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 455);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 23);
-    temp = dequeue(queue, &front, &rear);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    temp = dequeue(queue, &front, &rear);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    temp = dequeue(queue, &front, &rear);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    temp = dequeue(queue, &front, &rear);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    temp = dequeue(queue, &front, &rear);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    temp = dequeue(queue, &front, &rear);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    temp = dequeue(queue, &front, &rear);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    temp = dequeue(queue, &front, &rear);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    temp = dequeue(queue, &front, &rear);
-    enqueue(queue, &front, &rear, 123);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 234);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 456);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 23);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 4247);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 213);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
-    enqueue(queue, &front, &rear, 170);
-    printf("front: %d rear: %d queue[rear]: %d\n", front, rear, queue[rear]);
+    int front = -1;
+    int rear = -1;
+    int array[MAX];
+    int operation;
+    printf("there is an empty Queue. you can perfor 4 operation.\ninput 1 for enqueue()\ninput 2 for dequeue()\ninput 0 to exit\ninput 3 to know the index of front and rear\n");
+    while (1)
+    {
+        printf("input operation: ");
+        scanf("%d", &operation);
+        if (operation == 0)
+        {
+            printf("program exitted\n");
+            return 0;
+        }
+        else if (operation == 1)
+        {
+            if ((rear + 1) % MAX != front) 
+            {
+                rear = (rear + 1) % MAX;
+                printf("enter element that you want to enqueue: ");
+                scanf("%d", &array[rear]);
+                printf("element %d enqueued in the index %d\n", array[rear], rear);
+            } 
+            else
+            {
+                printf("overflow\n");
+            } 
+        }
+        else if (operation == 2)
+        {
+            if ((front + 1 + MAX) % MAX != rear) 
+            {
+                front = (front + 1 + MAX) % MAX;
+                printf("dequeueing the first element at index %d...\n", front);
+                printf("%d\n", array[front]);
+            } 
+            else
+            {
+                printf("underflow\n");
+            }
+        }
+        else if (operation == 3)
+        {
+            //actual front has to be 1 greater than the fron variable to maintain the logistics.
+            printf("front at index: %d\nrear at index %d\n",front + 1,rear); 
+        }
+    }
 }

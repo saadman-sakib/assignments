@@ -4,7 +4,7 @@ int* merge_sort(int arr[], int array[], int n) {
     if (n == 1) {
         return array;
     }
-    return merge(merge_sort(array),merge_sort())
+    return merge(merge_sort(array),merge_sort());
 }
 
 int* merge(int array[],int a[], int n, int b[], int m) {

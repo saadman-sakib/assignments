@@ -1,16 +1,33 @@
-//getchar requirs enter key to stop
-//getch never stops unless terminated
-//gets takes inp
 #include<stdio.h>
-#include<string.h>
+int compare(char str1[], char str2[])
+{
+    int i = 0;
+    while (str1[i] != '\0')
+    {
+        if (str1[i]>str2[i])
+        {
+            return 1;
+        }
+        else if (str2[i]>str1[i])
+        {
+            return 0;
+        }
+        else if(str2[i] == '\0')
+        {
+            return 1;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return 0;
+}
+
+
+
 int main()
 {
-    char ch;
-    char string1[4];
-    ch = getchar();
-    gets(string1);
-    putchar(ch);
-    putchar('\n');
-    puts(string1);
-    printf("\n%s", string1);
+    printf("%d",compare("boy","good"));
+    return 0;
 }
