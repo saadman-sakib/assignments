@@ -23,7 +23,6 @@ void bubble_sort(struct student array[], int size)
     }
 }
 
-
 int main()
 {
     struct student s[3];
