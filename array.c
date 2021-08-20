@@ -1,53 +1,16 @@
 #include<stdio.h>
 
-int main()
-{
+int main() {
     int array[10];
     float sum=0;
-
     printf("print 10 numbers:\n");
-
     for (int i = 0; i < 10; i++)
-    {
         scanf("%d", &array[i]);
-    }
-
     for (int i = 0; i < 10; i++)
-    {
         sum += array[i];
-    }
-
     printf("average: %.2f\n", sum/10);
-    
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
