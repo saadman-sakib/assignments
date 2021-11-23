@@ -1,3 +1,2 @@
-fscanf(fp,"%s", &name);
-    // printf("%s\n",name);
-    // fscanf(fp,"%s",name);
+
+    // printf("%d %d\n", x, y);
